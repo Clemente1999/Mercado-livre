@@ -124,9 +124,18 @@ function renderProduct(products) {
 }
 
 
+function searchProducts() {
+  const searchInput = document.getElementById('searchInput').value.toLowerCase()
+  
+  const filteredProducts = products.filter(product => product.title.toLowerCase().includes(searchInput))
+
+  renderProduct(filteredProducts)
+}
 
 document.addEventListener("DOMContentLoaded", () => {
-  renderProduct(products);
+  renderProduct(products)
+
+  document.getElementById('searchBtn').addEventListener('click', searchProducts)
 });
 
 
